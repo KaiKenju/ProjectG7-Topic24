@@ -3,6 +3,7 @@ from domain.course import Course
 from domain.feemanager import FeeManager
 import numpy as np
 
+
 customers = []
 courses = []
 fees = []
@@ -70,6 +71,12 @@ def cal_fee():
         arr1 = np.array(fee_list3) # [111 222]
         arr2 = np.array(fees) # fee of course sever [150 250]
         k = 0
+        print("Here,List of course: ")
+        print(f"| {'No': <5} | {'Course ID' :<10} | {'Course Name': <20} | {'Cost':<10} |")
+        print("+" + "-" * 56 + "+")
+        for index,course in enumerate(courses):
+            print(f"| {index:5} |{course.course_id:11} | {course.name:20} | {course.fee:10} |")
+        print("+" + "-" * 56 +  "+")
         if customer_id in fee_list1 and customer_name in fee_list2:
             x = int(input("Enter the  course id  to pay the fee: "))
             #check course id in arr1 yes or not!
@@ -85,7 +92,7 @@ def cal_fee():
                 print(f"| {'Customer ID': <10} | {'Customer name': <20} | {'Course ID': <10} | {'Fee (USD)': <10} | {'Pay (USD)': <10} | {'Amount owed': <10} |")
                 print("+" + "-" * 89 + "+")
                 print(f"| {customer_id:11} | {customer_name:20} | {x:10} | {arr2[i]:10} | {y:10} | {k:11} |")
-                pay1.append(FeeManager(customer_id,customer_name,x,arr2[i],y,k))# error
+                pay1.append(FeeManager(customer_id,customer_name,x,arr2[i],y,k))
                 
             else:
                 print(f"Something wrong! The customer {customer_name} or the customer id {customer_id} have not exits.")
