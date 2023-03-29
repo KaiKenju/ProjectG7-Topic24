@@ -3,7 +3,7 @@ from tkinter import messagebox
 from subprocess import call
 
 root = Tk()
-root.title('Login GymManagement System')
+root.title('Login Gym Management System')
 root.geometry('925x500+300+200')
 root.configure(bg='#fff')
 root.resizable(False,False)
@@ -11,7 +11,7 @@ root.resizable(False,False)
 def signin(t:Tk):
     username=user.get()
     password=code.get()
-
+    
     if username =='admin' and password =='123456':
         messagebox.showinfo("","Logged in as Administrator")
         t.destroy()
@@ -53,11 +53,12 @@ def on_leave(e):
     name=code.get()
     if name=='':
         code.insert(0,'Password')
-code = Entry(frame,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',11))
+code = Entry(frame,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',11),show='*')
 code.place(x=30,y=150)
 code.insert(0,'Password')
 code.bind('<FocusIn>', on_enter)
 code.bind('<FocusOut>', on_leave)
+
 
 
 Frame(frame,width=295,height=2,bg='black').place(x=25,y=177)
