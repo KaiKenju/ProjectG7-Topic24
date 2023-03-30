@@ -1,9 +1,7 @@
-import datetime
 from tkinter import *
 import tkinter.messagebox as mb
 from tkinter import ttk
 import tkinter as tk
-from tkcalendar import DateEntry  # pip install tkcalendar
 import sqlite3
 
 
@@ -18,17 +16,16 @@ cursor = connector.cursor()
 
 #create database
 connector.execute(
-"CREATE TABLE IF NOT EXISTS GYM_MANAGEMENT (NO_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT, ID TEXT, PHONE_NO TEXT, GENDER TEXT, DOB TEXT, STREAM TEXT)"
+"CREATE TABLE IF NOT EXISTS GYM_MANAGEMENT (NO_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT, ID TEXT, PHONE_NO TEXT, GENDER TEXT, DOB TEXT, JOINDATE TEXT, COURSE_ID TEXT, COURSE_NAME TEXT)"
 )
 
 # Creating the functions
 def reset_fields():
-    global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob, stream_strvar
+    global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob_strvar, join_strvar, courseid_strvar, coursename_strvar
 
-    for i in ['name_strvar', 'customerID_strvar', 'contact_strvar', 'gender_strvar', 'stream_strvar']:
+    for i in ['name_strvar', 'customerID_strvar', 'contact_strvar', 'gender_strvar', 'dob_strvar','join_strvar', 'courseid_strvar','coursename_strvar']:
         exec(f"{i}.set('')")
-    dob.set_date(datetime.datetime.now().date())
-
+    
 #reset
 def reset_form():
     global tree
@@ -48,21 +45,24 @@ def display_records():
 
 #add information
 def add_record():
-    global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob, stream_strvar
+    global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob_strvar, join_strvar, courseid_strvar, coursename_strvar
 
     name = name_strvar.get()
     customer_id = customerID_strvar.get()
     contact = contact_strvar.get()
     gender = gender_strvar.get()
-    DOB = dob.get_date()
-    stream = stream_strvar.get()
+    dob = dob_strvar.get() 
+    join = join_strvar.get()
+    courseid = courseid_strvar.get()
+    coursename = coursename_strvar.get()
 
-    if not name or not customer_id or not contact or not gender or not DOB or not stream:
+
+    if not name or not customer_id or not contact or not gender or not dob or not join or not courseid or not coursename:
         mb.showerror('Error!', "Please fill all the missing fields!!")
     else:
         try:
             connector.execute(
-            'INSERT INTO GYM_MANAGEMENT (NAME, ID, PHONE_NO, GENDER, DOB, STREAM) VALUES (?,?,?,?,?,?)', (name, customer_id, contact, gender, DOB, stream)
+            'INSERT INTO GYM_MANAGEMENT (NAME, ID, PHONE_NO, GENDER, DOB, JOINDATE, COURSE_ID, COURSE_NAME) VALUES (?,?,?,?,?,?,?,?)', (name, customer_id, contact, gender, dob, join, courseid, coursename)
             )
             connector.commit()
             mb.showinfo('Record added', f"Record of {name} was successfully added")
@@ -91,17 +91,16 @@ def remove_record():
 
 # choose the one customer to view in entry
 def view_record():
-    global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob, stream_strvar
+    global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob_strvar, join_strvar, courseid_strvar, coursename_strvar
 
     current_item = tree.focus()
     values = tree.item(current_item)
     selection = values["values"]
 
-    date = datetime.date(int(selection[5][:4]), int(selection[5][5:7]), int(selection[5][8:]))
-
     name_strvar.set(selection[1]); customerID_strvar.set(selection[2])
     contact_strvar.set(selection[3]); gender_strvar.set(selection[4])
-    dob.set_date(date); stream_strvar.set(selection[6])
+    dob_strvar.set(selection[5]); join_strvar.set(selection[6])
+    courseid_strvar.set(selection[7]); coursename_strvar.set(selection[8])
 
 
 # Initializing the GUI window
@@ -111,15 +110,18 @@ main.geometry('1000x600')
 main.resizable(0, 0)
 
 # Creating the background and foreground color variables
-lf_bg = 'MediumSpringGreen' # bg color for the left_frame
-cf_bg = 'PaleGreen' # bg color for the center_frame
+lf_bg = '#67cabc' # bg color for the left_frame
+cf_bg = '#adff2f' # bg color for the center_frame
 
 # Creating the StringVar or IntVar variables
 name_strvar = StringVar()
 customerID_strvar = StringVar()
 contact_strvar = StringVar()
 gender_strvar = StringVar()
-stream_strvar = StringVar()
+join_strvar = StringVar()
+courseid_strvar = StringVar()
+coursename_strvar = StringVar()
+dob_strvar = StringVar()
 
 # Placing the components in the main window
 Label(main, text="GYM MANAGEMENT SYSTEM", font=headlabelfont, bg='White',relief=tk.GROOVE).pack(side=TOP, fill=X)
@@ -133,25 +135,32 @@ center_frame.place(relx=0.2, y=30, relheight=1, relwidth=0.2)
 right_frame = Frame(main, bg="Gray35")
 right_frame.place(relx=0.4, y=30, relheight=1, relwidth=0.6)
 
+bot_frame = Frame(main, bg="Gray35")
+bot_frame.place(x=400, y=450, width=600)
+
 # Placing components in the left frame
-Label(left_frame, text="Name", font=labelfont, bg=lf_bg).place(relx=0.375, rely=0.05)
-Label(left_frame, text="Contact Number", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.18)
-Label(left_frame, text="Customer ID", font=labelfont, bg=lf_bg).place(relx=0.2, rely=0.31)
-Label(left_frame, text="Gender", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.44)
-Label(left_frame, text="Date of Birth (DOB)", font=labelfont, bg=lf_bg).place(relx=0.1, rely=0.57)
-Label(left_frame, text="Stream", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.7)
+Label(left_frame, text="Name", font=labelfont, bg=lf_bg).place(relx=0.375, rely=0.005)
+Label(left_frame, text="Contact Number", font=labelfont, bg=lf_bg).place(relx=0.175, rely=0.09)
+Label(left_frame, text="Customer ID", font=labelfont, bg=lf_bg).place(relx=0.2, rely=0.185)
+Label(left_frame, text="Gender", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.275)
+Label(left_frame, text="Date of Birth (DOB)", font=labelfont, bg=lf_bg).place(relx=0.1, rely=0.39)
+Label(left_frame, text="Join Date", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.50)
+Label(left_frame, text="Course ID", font=labelfont, bg=lf_bg).place(relx=0.26, rely=0.60)
+Label(left_frame, text="Course Name", font=labelfont, bg=lf_bg).place(relx=0.20, rely=0.70)
 
-Entry(left_frame, width=19, textvariable=name_strvar, font=entryfont).place(x=14, rely=0.1)
-Entry(left_frame, width=19, textvariable=contact_strvar, font=entryfont).place(x=14, rely=0.23)
-Entry(left_frame, width=19, textvariable=customerID_strvar, font=entryfont).place(x=14, rely=0.36)
-Entry(left_frame, width=19, textvariable=stream_strvar, font=entryfont).place(x=14, rely=0.75)
+#create entry
+Entry(left_frame, width=19, textvariable=name_strvar, font=entryfont).place(x=14, rely=0.05)
+Entry(left_frame, width=19, textvariable=contact_strvar, font=entryfont).place(x=14, rely=0.14)
+Entry(left_frame, width=19, textvariable=customerID_strvar, font=entryfont).place(x=14, rely=0.23)
+OptionMenu(left_frame, gender_strvar, 'Male', "Female").place(x=55, rely=0.32, relwidth=0.4)
+Entry(left_frame, width=19, textvariable=dob_strvar, font=entryfont).place(x=16, rely=0.45)
+Entry(left_frame, width=19, textvariable=join_strvar, font=entryfont).place(x=14, rely=0.55)
+Entry(left_frame, width=19, textvariable=courseid_strvar, font=entryfont).place(x=14, rely=0.65)
+Entry(left_frame, width=19, textvariable=coursename_strvar, font=entryfont).place(x=14, rely=0.75)
 
-OptionMenu(left_frame, gender_strvar, 'Male', "Female").place(x=45, rely=0.49, relwidth=0.5)
 
-dob = DateEntry(left_frame, font=("Microsoft YaHei UI Light", 12), width=15)
-dob.place(x=20, rely=0.62)
 
-Button(left_frame, text='Submit', font=labelfont, command=add_record, width=18).place(relx=0.025, rely=0.85)
+Button(left_frame, text='Submit', font=labelfont, command=add_record, width=10).place(relx=0.2, rely=0.85)
 
 # Placing components in the center frame
 Button(center_frame, text='Delete Record', font=labelfont, command=remove_record, width=15).place(relx=0.1, rely=0.25)
@@ -162,8 +171,10 @@ Button(center_frame, text='Delete database', font=labelfont, command=reset_form,
 # Placing components in the right frame
 Label(right_frame, text='Customer Records', font=headlabelfont, bg='DarkGreen', fg='LightCyan').pack(side=TOP, fill=X)
 
+Label(bot_frame, text='List of Course', font=headlabelfont, bg='DarkGreen', fg='LightCyan').pack(side=BOTTOM, fill=X)
+
 tree = ttk.Treeview(right_frame, height=100, selectmode=BROWSE,
-                    columns=('NO_ID', "Name", "Customer ID", "Contact Number", "Gender", "Date of Birth", "Stream"))
+                    columns=('NO_ID', "Name", "Customer ID", "Contact Number", "Gender", "Date of Birth", "JoinDate", "Course ID", "Course Name"))
 
 X_scroller = Scrollbar(tree, orient=HORIZONTAL, command=tree.xview)
 Y_scroller = Scrollbar(tree, orient=VERTICAL, command=tree.yview)
@@ -175,25 +186,43 @@ tree.config(yscrollcommand=Y_scroller.set, xscrollcommand=X_scroller.set)
 
 tree.heading('NO_ID', text='No', anchor=CENTER)
 tree.heading('Name', text='Name', anchor=CENTER)
-tree.heading('Customer ID', text='Customer ID', anchor=CENTER)
-tree.heading('Contact Number', text='Phone No', anchor=CENTER)
+tree.heading('Customer ID', text='ID', anchor=CENTER)
+tree.heading('Contact Number', text='Phone', anchor=CENTER)
 tree.heading('Gender', text='Gender', anchor=CENTER)
 tree.heading('Date of Birth', text='DOB', anchor=CENTER)
-tree.heading('Stream', text='Stream', anchor=CENTER)
+tree.heading('JoinDate', text='Join Date', anchor=CENTER)
+tree.heading('Course ID', text='Course ID', anchor=CENTER)
+tree.heading('Course Name', text='Course Name', anchor=CENTER)
 
 tree.column('#0', width=0, stretch=NO)
 tree.column('#1', width=40, stretch=NO)
 tree.column('#2', width=80, stretch=NO)
-tree.column('#3', width=80, stretch=NO)
-tree.column('#4', width=80, stretch=NO)
-tree.column('#5', width=80, stretch=NO)
-tree.column('#6', width=80, stretch=NO)
-tree.column('#7', width=150, stretch=NO)
+tree.column('#3', width=43, stretch=NO)
+tree.column('#4', width=57, stretch=NO)
+tree.column('#5', width=48, stretch=NO) #gender
+tree.column('#6', width=70, stretch=NO)
+tree.column('#7', width=70, stretch=NO)
+tree.column('#8', width=80, stretch=NO)
+tree.column('#9', width=90, stretch=NO)
 
 tree.place(y=30, relwidth=1, relheight=0.9, relx=0)
 
-display_records()
+from prettytable import PrettyTable
+t=Text(main)
+x=PrettyTable()
+x.field_names = [" ID "," Name ", " Duration ", " Fee ", "  Description  ", "  PT  "]
 
+x.add_row([ 123 , " Gập Bụng ", " 3 months ", " 100 USD ", "  Hardwork  ", "  Yes "])
+x.add_row([ 456 , " Hít Xà ", " 3 months ", " 150 USD ", "  Hardwork  ", "  Yes "])
+x.add_row([ 789 , " Chống Đẩy ", " 3 months ", " 120 USD ", "  Hardwork  ", "  Yes "])
+t.insert(INSERT,x)
+t.place(x=400, y=480, width=600)
+display_records()
+  
 # Finalizing the GUI window
 main.update()
 main.mainloop()
+
+
+
+ 
