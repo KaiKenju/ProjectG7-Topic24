@@ -15,7 +15,7 @@ def signin(t:Tk):
     if username =='admin' and password =='123456':
         messagebox.showinfo("","Logged in as Administrator")
         t.destroy()
-        call(["python","tesst.py"]) # call file tesst
+        call(["python","main.py"]) # call file tesst
     else:
         messagebox.showinfo("","Invalid username or password")
 
