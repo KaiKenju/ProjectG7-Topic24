@@ -3,6 +3,7 @@ import tkinter.messagebox as mb
 from tkinter import ttk
 import tkinter as tk
 import sqlite3
+from prettytable import PrettyTable
 
 
 # Creating the universal font variables
@@ -102,6 +103,31 @@ def view_record():
     dob_strvar.set(selection[5]); join_strvar.set(selection[6])
     courseid_strvar.set(selection[7]); coursename_strvar.set(selection[8])
 
+#sreach information
+def search_record():
+    keyword = entry_search.get()
+    if not keyword:
+        return
+
+    tree.delete(*tree.get_children())
+    curr = connector.execute('SELECT * FROM GYM_MANAGEMENT WHERE NAME LIKE ? OR ID LIKE ?',
+        (f'%{keyword}%', f'%{keyword}%'))
+    data = curr.fetchall()
+
+    for record in data:
+        tree.insert('', END, values=record)
+    mb.showinfo("Search Results", f"Found {len(data)} records matching '{keyword}'")
+
+#back
+def back_inforamtion ():
+    # Clear the entry search
+    entry_search.delete(0, END)
+    # Delete all results from the treeview widget
+    tree.delete(*tree.get_children())
+    # Display all records again
+    display_records()
+    
+
 
 # Initializing the GUI window
 main = Tk()
@@ -147,7 +173,7 @@ Label(left_frame, text="Date of Birth (DOB)", font=labelfont, bg=lf_bg).place(re
 Label(left_frame, text="Join Date", font=labelfont, bg=lf_bg).place(relx=0.3, rely=0.50)
 Label(left_frame, text="Course ID", font=labelfont, bg=lf_bg).place(relx=0.26, rely=0.60)
 Label(left_frame, text="Course Name", font=labelfont, bg=lf_bg).place(relx=0.20, rely=0.70)
-
+Label(center_frame, text='Search by Name/ID:', font=labelfont, bg=cf_bg).place(relx=0.1, rely=0.10)
 #create entry
 Entry(left_frame, width=19, textvariable=name_strvar, font=entryfont).place(x=14, rely=0.05)
 Entry(left_frame, width=19, textvariable=contact_strvar, font=entryfont).place(x=14, rely=0.14)
@@ -157,7 +183,8 @@ Entry(left_frame, width=19, textvariable=dob_strvar, font=entryfont).place(x=16,
 Entry(left_frame, width=19, textvariable=join_strvar, font=entryfont).place(x=14, rely=0.55)
 Entry(left_frame, width=19, textvariable=courseid_strvar, font=entryfont).place(x=14, rely=0.65)
 Entry(left_frame, width=19, textvariable=coursename_strvar, font=entryfont).place(x=14, rely=0.75)
-
+entry_search = Entry(center_frame, width=19, font=entryfont)
+entry_search.place(relx=0.07, rely=0.15)
 
 
 Button(left_frame, text='Submit', font=labelfont, command=add_record, width=10).place(relx=0.2, rely=0.85)
@@ -167,7 +194,8 @@ Button(center_frame, text='Delete Record', font=labelfont, command=remove_record
 Button(center_frame, text='View Record', font=labelfont, command=view_record, width=15).place(relx=0.1, rely=0.35)
 Button(center_frame, text='Reset Fields', font=labelfont, command=reset_fields, width=15).place(relx=0.1, rely=0.45)
 Button(center_frame, text='Delete database', font=labelfont, command=reset_form, width=15).place(relx=0.1, rely=0.55)
-
+Button(center_frame, text='Back', font=labelfont, command=back_inforamtion, width=15).place(relx=0.1, rely=0.65)
+Button(center_frame, text='Search', font=labelfont, command=search_record, width=15).place(relx=0.1, rely=0.03)
 # Placing components in the right frame
 Label(right_frame, text='Customer Records', font=headlabelfont, bg='DarkGreen', fg='LightCyan').pack(side=TOP, fill=X)
 
@@ -207,14 +235,14 @@ tree.column('#9', width=90, stretch=NO)
 
 tree.place(y=30, relwidth=1, relheight=0.9, relx=0)
 
-from prettytable import PrettyTable
+
 t=Text(main)
 x=PrettyTable()
-x.field_names = [" ID "," Name ", " Duration ", " Fee ", "  Description  ", "  PT  "]
+x.field_names = [" ID ","  Name  ", "  Duration  ", "  Fee  ", "  Description  ", "  PT  "]
 
-x.add_row([ 123 , " Gập Bụng ", " 3 months ", " 100 USD ", "  Hardwork  ", "  Yes "])
-x.add_row([ 456 , " Hít Xà ", " 3 months ", " 150 USD ", "  Hardwork  ", "  Yes "])
-x.add_row([ 789 , " Chống Đẩy ", " 3 months ", " 120 USD ", "  Hardwork  ", "  Yes "])
+x.add_row([ 123 , "Group X ", " 3 months ", " 100 USD ", "  Hardwork  ", "  Yes "])
+x.add_row([ 456 , "Workout ", " 4 months ", " 150 USD ", "  Hardwork  ", "  Yes "])
+x.add_row([ 789 , " Aerobic ", " 3 months ", " 120 USD ", "  Lightly  ", "  Yes "])
 t.insert(INSERT,x)
 t.place(x=400, y=480, width=600)
 display_records()
