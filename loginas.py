@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import messagebox
 from subprocess import call
+import webbrowser
 
 root = Tk()
 root.title('Login Gym Management System')
@@ -18,16 +19,46 @@ def signin(t:Tk):
         call(["python","main.py"]) # call file tesst
     else:
         messagebox.showinfo("","Invalid username or password")
+def on_facebook():
+    webbrowser.open_new("https://www.facebook.com/groups/1775647979239578")
+def on_youtube():
+    webbrowser.open_new("https://www.youtube.com/watch?v=lTswlJjBBi0")
+def on_twitter():
+    webbrowser.open_new("https://twitter.com/PowerhouseGym")
 
 #open image file
-img = PhotoImage(file='1.png')
+img = PhotoImage(file='./assets/1.png')
 Label(root,image=img,bg='white').place(x=50,y=50)
 
+img1 = PhotoImage(file='./assets/user.png')
+Label(root,image=img1,bg='white').place(x=466,y=155)
+
+img2 = PhotoImage(file='./assets/password.png')
+Label(root,image=img2,bg='white').place(x=466,y=215)
+
+img3 = PhotoImage(file='./assets/Facebook.png')
+img4 = PhotoImage(file='./assets/youtube.png')
+img5 = PhotoImage(file='./assets/twitter.png')
+
 frame=Frame(root,width=350,height=350,bg="white")
-frame.place(x=480,y=70)
+frame.place(x=490,y=70)
 
 heading=Label(frame,text='Sign in',fg='#57a1f8',bg='white',font=('Microsoft YaHei UI Light', 23,'bold'))
 heading.place(x=100,y=5)
+
+#----------------------------------------------------------------
+textphilo = Label(frame, text='If no one loves you, then love yourself',fg='#081018',bg='white',font=('Microsoft YaHei UI Light', 13,'italic'))
+textphilo.place(x=30,y=310)
+
+#create a button to click 
+facebook_button = Button(root,image=img3,command=on_facebook,borderwidth=0)
+facebook_button.place(x=700,y=420)
+
+youtube_button = Button(root,image=img4,command=on_youtube,borderwidth=0)
+youtube_button.place(x=800,y=425)
+
+twitter_button = Button(root,image=img5,command=on_youtube,borderwidth=0)
+twitter_button.place(x=750,y=420)
 
 ####----------------------------------------------------------------
 def on_enter(e):
@@ -38,7 +69,7 @@ def on_leave(e):
     if name=='':
         user.insert(0,'Username')
 user = Entry(frame,width=25,fg='black',border=0,bg='white',font=('Microsoft YaHei UI Light',11))
-user.place(x=30,y=80)
+user.place(x=30,y=85)
 user.insert(0,'Username')
 user.bind('<FocusIn>', on_enter)
 user.bind('<FocusOut>', on_leave)
