@@ -1,6 +1,6 @@
 # ProjectG24
 
-# ⚡️ Gym Management System
+# 💪 Gym Management System 💪
 ### A project from Advanced Programming with Python, Group 7
 
 ## Our team
