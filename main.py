@@ -15,17 +15,17 @@ entryfont = ('Cambria', 12)
 connector = sqlite3.connect('GymManagement.db')
 cursor = connector.cursor()
 
-#create database
+#create database 
 connector.execute(
 "CREATE TABLE IF NOT EXISTS GYM_MANAGEMENT (NO_ID INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, NAME TEXT, ID TEXT, PHONE_NO TEXT, GENDER TEXT, DOB TEXT, JOINDATE TEXT, COURSE_ID TEXT, COURSE_NAME TEXT)"
-)
+) 
 
 # Creating the functions
 def reset_fields():
     global name_strvar, customerID_strvar, contact_strvar, gender_strvar, dob_strvar, join_strvar, courseid_strvar, coursename_strvar
 
     for i in ['name_strvar', 'customerID_strvar', 'contact_strvar', 'gender_strvar', 'dob_strvar','join_strvar', 'courseid_strvar','coursename_strvar']:
-        exec(f"{i}.set('')")
+        exec(f"{i}.set('')") 
     
 #reset
 def reset_form():
@@ -103,7 +103,7 @@ def view_record():
     dob_strvar.set(selection[5]); join_strvar.set(selection[6])
     courseid_strvar.set(selection[7]); coursename_strvar.set(selection[8])
 
-#sreach information
+#search information
 def search_record():
     keyword = entry_search.get()
     if not keyword:
@@ -127,8 +127,6 @@ def back_inforamtion ():
     # Display all records again
     display_records()
     
-
-
 # Initializing the GUI window
 main = Tk()
 main.title('Gym Management System')

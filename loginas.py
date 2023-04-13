@@ -16,9 +16,15 @@ def signin(t:Tk):
     if username =='admin' and password =='123456':
         messagebox.showinfo("","Logged in as Administrator")
         t.destroy()
-        call(["python","main.py"]) # call file tesst
+        call(["python","main.py"]) # call file admin
     else:
         messagebox.showinfo("","Invalid username or password")
+
+def guest(t:Tk):
+    messagebox.showinfo("", "Logged in as Guest successfully")
+    t.destroy()
+    call(["python","customerView.py"]) # call file guest
+
 def on_facebook():
     webbrowser.open_new("https://www.facebook.com/groups/1775647979239578")
 def on_youtube():
@@ -95,4 +101,5 @@ Frame(frame,width=295,height=2,bg='black').place(x=25,y=177)
 
 Button(frame,width=39,pady=7,text='Sign in', bg='#57a1f8',fg='white',border=0,command= lambda: signin(root)).place(x=35,y=204)
 
-root.mainloop()
+Button(frame, width=39, pady=7, text='Login as a guest', bg = '#211e1e', fg = 'white', border=0, command= lambda: guest(root)).place(x=35,y=250)
+root.mainloop() 
