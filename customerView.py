@@ -6,57 +6,60 @@ import webbrowser
 win = tk.Tk()
 win.title("Gym Management System")
 win.geometry('1000x600')
+
+global img3
+mid = tk.Frame(win,bg='White')
+mid.place(y=50,width=1000,height=606)
+img3 = PhotoImage(file='./image/GymDash.png')
+Label(mid,image=img3,bd=0).place(x=0,y=0)
 #============================================= D A S H B O A R D =====================================
 #================= CONTACT HOVER ===========
 
 
 # === END NEW CODE ====== #
 
-# def labelbt12():
-#     x  = Frame(win,text='12\nMonths', width=8,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-#     x.place(x=35,y=430)
 def mon12():
-    Label(win,text='Duration: 12 Months', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:    500 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:    50 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:     1.5 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration: 12 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:    500 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:    50 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:     1.5 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 
 def mon6():
-    Label(win,text='Duration:   6 Months', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:    350 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:    35 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:     1.2 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:   6 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:    350 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:    35 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      1.2 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 
 def mon3():
-    Label(win,text='Duration:   3 Months', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:    150 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:    15 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:      0.9 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:   3 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:    150 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:    15 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      0.9 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 def mon1():
-    Label(win,text='Duration:   1 Months', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:      60 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:      6 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:      0.5 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:   1 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:      60 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:      6 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      0.5 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 def mon18():
-    Label(win,text='Duration:  18 Months', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:  1000 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:  100 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:      2.0 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:  18 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:  1000 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:  100 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      2.0 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 def mon21():
-    Label(win,text='Duration:  21 Months', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:  1300 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:  130 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:      2.5 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:  21 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:  1300 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:  130 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      2.5 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 def year2():
-    Label(win,text='Duration:  2 Years', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:  2000 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:  200 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:      2.8 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:  2 Years', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:  2000 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:  200 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      2.8 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 def year3():
-    Label(win,text='Duration:  3 Years', font=('Helvetica',14),fg='Black').place(x=400,y=390)
-    Label(win,text='Total Cost:  3000 USD', font=('Helvetica',14),fg='Black').place(x=400,y=430)
-    Label(win,text='Cost/Month:  300 USD', font=('Helvetica',14),fg='Black').place(x=400,y=470)
-    Label(win,text='Cost/Day:      3.4 USD', font=('Helvetica',14),fg='Black').place(x=400,y=510)
+    Label(win,text='Duration:  3 Years', font=('Helvetica',14),fg='Black').place(x=430,y=390)
+    Label(win,text='Total Cost:  3000 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
+    Label(win,text='Cost/Month:  300 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
+    Label(win,text='Cost/Day:      3.4 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
 # === END NEW CODE ====== #
 def on_enter_contact(e):
     contact_btn.config(bg='Black',fg='#fecc09')
@@ -139,11 +142,33 @@ def signupnow(t:Tk):
     call(["python", "loginas.py"])
 
 def hiddenContact():
-    bottom_frame.place_forget()
-    bottom_canvas.place_forget()
+    # bottom_frame.bind()
+    blindFRAME()
+    bottom_canvas.bind()
+    img_build.blank()
+    img_location.blank()
+
+def hiddenService():
+    img_gymhome.blank()
+    img_kickboxing.blank()
+    img_yoga.blank()
+    img_basketball.blank()
+    litServ.place_forget()
+
+def Hidedashboard():
+    img3.blank()
+
+def hideknowledge():
+    img20.blank()
+    img21.blank()
+    imgverti.blank()
+    
 
 def active_both_button():
-    gym_btn1.invoke()
+    gym_btn1.invoke() #invoke means connection Button with funtion
+    gym_btn2.invoke()
+    gym_btn3.invoke()
+    gym_btn4.invoke()
     gym_info()
 
 #========================================================================================
@@ -197,11 +222,11 @@ def contact_info():
     bottom_frame.place(y=353,width=1000,height=247)
     bottom_canvas = Canvas(bottom_frame,width=1000,height=247,highlightthickness=0)
     bottom_canvas.pack(fill=BOTH,expand=TRUE)
-    
+
     #CONTACT INFORMATION
 
     bottom_canvas.create_text(105,25,text='HEAD OFFICE',font=('Montserrat',12,'bold'),fill='Black')
-    bottom_canvas.create_line(50,7,115,7,width=4,fill='#fecc09')
+    bottom_canvas.create_line(50,7,155,7,width=4,fill='#fecc09')
 
     bottom_canvas.create_line(722,40,950,40,950,244,722,244,722,40,width=2,fill='Black')
     bottom_canvas.create_text(785,60,text='CONTACT',font=('Montserrat',12,'bold'),fill='Black')
@@ -234,6 +259,7 @@ def contact_info():
         webbrowser.open_new("https://www.youtube.com/watch?v=lTswlJjBBi0")
     def on_twitter():
         webbrowser.open_new("https://twitter.com/PowerhouseGym")
+
     facebook_button = Button(bottom_frame,image=img_fb,command=on_facebook,borderwidth=0)
     facebook_button.place(x=760,y=190)
 
@@ -242,6 +268,9 @@ def contact_info():
 
     twitter_button = Button(bottom_frame,image=img_tw,command=on_twitter,borderwidth=0)
     twitter_button.place(x=880,y=190)
+def blindFRAME():
+    global frame1
+    frame1 = bottom_frame.place_forget()
 
 contact_btn = tk.Button(
     top,
@@ -261,6 +290,51 @@ contact_btn.bind("<Leave>", on_leave_contact)
 
 # ================= KNOWLEDGE BUTTON =================
 
+def knowledge_infor ():
+    global img,imgverti
+    global img20,img21
+    global bottom_frame,bottom_canvas
+
+    mid = tk.Frame(win,bg='White')
+    mid.place(y=50,width=1000,height=303)
+
+    img = PhotoImage(file='./image/knowledge1.png')
+    mid_canvas = Canvas(mid,width=1000,height=247,highlightthickness=0)
+    mid_canvas.pack(fill=BOTH,expand=TRUE)
+
+    #SET IMAGE CANVAS FOR MID
+    mid_canvas.create_image(0,0,image = img, anchor='nw')
+
+    #CREATE CONTACT TEXT FOR MID FRAME
+    mid_canvas.create_text(500,90,text='KNOWLEDGE FOR GYM',font=('Montserrat',40,'bold'),fill='#fecc09')
+    mid_canvas.create_line(420,130,570,130,width=3,fill='#fecc09')
+    mid_canvas.create_text(480,170,text="You have knowledge, you practice diligently, you will have a beautiful body. Join now for us to help you.",font=('Arial',14),fill='White')
+    mid_canvas.create_text(480,200,text='Join now for us to help you - hotline 1900.2208',font=('Arial',14),fill='White')
+
+    #CREATE CONTACT TEXT FOR BOTTOM 
+    bottom_frame = tk.Frame(win,bg='White')
+    bottom_frame.place(y=353,width=1000,height=303)
+    bottom_canvas = Canvas(bottom_frame,width=1000,height=247,highlightthickness=0)
+    bottom_canvas.pack(fill=BOTH,expand=TRUE)
+
+    bottom_canvas.create_text(75,23,text='WORKOUT',font=('Montserrat',12,'bold'),fill='Black')
+    bottom_canvas.create_line(30,10,125,10,width=4,fill='#fecc09')
+    bottom_canvas.create_text(75,60,text='NUTRITION',font=('Montserrat',12,'bold'),fill='Black')
+    bottom_canvas.create_line(30,45,125,45,width=4,fill='#fecc09')
+
+    # bottom_canvas.create_line(500,10,500,400, dash=(4,2),width=3,fill='#20b2aa')
+    imgverti = PhotoImage(file='./assets/kedoc.png')
+    Label(win,image=imgverti,fg='white').place(x=500,y=364)
+
+    img20 = PhotoImage(file='./image/foot4.png')
+    img20 = img20.subsample(2)
+    bottom_canvas.create_image(750,130, image = img20,anchor='center')
+
+    img21 = PhotoImage(file='./image/fullbody2.png')
+    img21 = img21.subsample(2)
+    bottom_canvas.create_image(300,125,image = img21, anchor= 'center')
+
+
 know_btn = tk.Button(
     top,
     bg='Black',
@@ -269,32 +343,77 @@ know_btn = tk.Button(
     font=('Helvetica',10,'bold'),width=10,bd=0,
     activebackground='Black',
     activeforeground='#fecc09',
-    relief=tk.FLAT
+    relief=tk.FLAT,
+    command= knowledge_infor
 )
 know_btn.pack(side='right',padx= 15,pady=12)
 know_btn.bind("<Enter>", on_enter_know)
 know_btn.bind("<Leave>", on_leave_know)
 
 
+
 # ================= SERVICE BUTTON ================= 
 def service_info():
-    
-    global img1
-    mid = tk.Frame(win,bg='White')
-    mid.place(y=50,width=1000,height=303)
+    global img1, img_gymhome, img_kickboxing, img_yoga, img_basketball, img_swim
+    global litServ
+    mid = tk.Frame(win, bg='White')
+    mid.place(y=50, width=1000, height=303)
     img1 = PhotoImage(file='./image/service1.png')
     Label(mid,image=img1,bd=0).place(x=0,y=0)
+    mid_canvas = Canvas(mid, width=1000, height=303, highlightthickness=0)
+    mid_canvas.pack(fill=BOTH, expand=TRUE)
+
+    # SET IMAGE CANVAS FOR MID
+    mid_canvas.create_image(0, 0, image=img1, anchor='nw')
+
+    # CREATE SERVICE TEXT FOR MID FRAME
+    mid_canvas.create_text(500, 90, text='SERVICE', font=('Montserrat', 40, 'bold'), fill='#fecc09')
+    mid_canvas.create_line(420, 130, 570, 130, width=3, fill='#fecc09')
+    mid_canvas.create_text(480, 170, text='We offer a variety of services to help you achieve your fitness goals.', font=('Arial', 14), fill='White')
+    mid_canvas.create_text(480, 200, text='Choose the one that suits you best and start your journey today.', font=('Arial', 14), fill='White')
+
+    # CREATE SERVICE TEXT FOR BOTTOM 
+    bottom_frame = tk.Frame(win, bg='White')
+    bottom_frame.place(y=353, width=1000, height=247)
+    bottom_canvas = Canvas(bottom_frame, width=1000, height=247, highlightthickness=0)
+    bottom_canvas.pack(fill=BOTH, expand=TRUE)
+    
+    # SERVICE INFORMATION
+    litServ=Label(win,text='OUR SERVICES', font=('Montserrat', 12, 'bold'))
+    litServ.place(x=40,y=375)
+    bottom_canvas.create_line(50, 7, 160, 7, width=4, fill='#fecc09')
+    
+    bottom_canvas.create_text(80, 70, text='1. Gym', font=('Helvetica', 10, 'bold'), fill='Black')
+    bottom_canvas.create_text(80, 100, text='          2. KickBoxing', font=('Helvetica', 10, 'bold'), fill='Black')
+    bottom_canvas.create_text(80, 130, text='3. Yoga', font=('Helvetica', 10, 'bold'), fill='Black')
+    bottom_canvas.create_text(80, 160, text='          4. Basket Ball', font=('Helvetica', 10, 'bold'), fill='Black')
+    bottom_canvas.create_text(80,190,text=' 5. Swim',font=('Helvetica',10,'bold'),fill='Black') 
+    
+    #BUTTON FOR BOTTOM
+    img_gymhome = PhotoImage(file='./image/gymhome.png').subsample(15, 15)
+    img_kickboxing = PhotoImage(file='./image/kickboxing-1.png').subsample(15, 15)
+    img_yoga = PhotoImage(file='./image/yoga.png').subsample(15, 15)
+    img_basketball = PhotoImage(file='./image/basketball.png').subsample(15, 15)
+    img_swim = PhotoImage(file='./image/swim.png').subsample(15, 15)
+    
+    Button(bottom_canvas, image=img_gymhome, bd=0, compound="top").place(x=230, y=50)
+    Button(bottom_canvas, image=img_kickboxing, bd=0, compound="top").place(x=375, y=50)
+    Button(bottom_canvas, image=img_yoga, bd=0, compound="top").place(x=520, y=50)
+    Button(bottom_canvas, image=img_basketball, bd=0, compound="top").place(x=665, y=50)
+    Button(bottom_canvas, image=img_swim, bd=0, compound="top").place(x=810, y=50)
+
 service_btn = tk.Button(
     top,
     bg='Black',
-    fg='White',
     text='SERVICE',
-    font=('Helvetica',10,'bold'),width=10,bd=0,
+    font=('Helvetica',10,'bold'),width=10, bd=0,
+    fg='White',
     activebackground='Black',
     activeforeground='#fecc09',
-    relief=tk.FLAT,
+    relief= tk.FLAT,
     command= service_info
 )
+
 service_btn.pack(side='right',padx= 15,pady=12)
 service_btn.bind("<Enter>", on_enter_service)
 service_btn.bind("<Leave>", on_leave_service)
@@ -304,16 +423,14 @@ service_btn.bind("<Leave>", on_leave_service)
 # ================= NEW CODEEEEEEEEEEEEEE
 
 def gym_info():
-    global img2
+    global img2,img12mon,img6mon,img3mon,img1mon
     global imgkedoc,imgphanchia,imgHLV
-    
-    Button(win,text='CLASSIC\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonCl).place(x=40,y=365)
-    Button(win,text='ADVANCED\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonAD).place(x=180,y=365)
+
+    # #   add button to click-------------------------------------------------------------------------------------
+    Button(win,text='CLASSIC\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonCl).place(x=32,y=365)
+    Button(win,text='ADVANCED\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonAD).place(x=160,y=365)
     mon12()
     
-    
-    
-
     mid = tk.Frame(win,bg='White')
     mid.place(y=50,width=1000,height=303)
     # Add this line to create the frame for gym_info's widgets
@@ -327,13 +444,22 @@ def gym_info():
     imgphanchia= PhotoImage(file='./assets/phanchia.png')
     Label(win,image=imgphanchia,fg='white').place(x=55,y=410)
 
+    img12mon = PhotoImage(file='./assets/12mon.png')
+    Label(win,image=img12mon,fg='white').place(x=56,y=431)
+    img6mon = PhotoImage(file='./assets/6mon.png')
+    Label(win,image=img6mon,fg='white').place(x=154,y=433)
+    img3mon = PhotoImage(file='./assets/3mon.png')
+    Label(win,image=img3mon,fg='white').place(x=51,y=502)
+    img1mon = PhotoImage(file='./assets/1mon.png')
+    Label(win,image=img1mon,fg='white').place(x=155,y=504)
+
     imgHLV = PhotoImage(file='./image/HLV.png')
     Label(win,image=imgHLV,fg='white').place(x=750,y=354)
     
-    # #   add button to click-------------------------------------------------------------------------------------
     # contact admin
-    Button(win,text='Sign up now',font=('Microsoft YaHei UI Light', 12,'bold'),bg='#dc5353',fg='white',command=lambda: signupnow(win),width=15).place(x=400,y=550)
+    Button(win,text='Sign up now',font=('Microsoft YaHei UI Light', 12,'bold'),bg='#dc5353',fg='white',command=lambda: signupnow(win),width=15).place(x=430,y=550)
 
+# #   add button to click-------------------------------------------------------------------------------------
 def buttonCl():
     test_bt1 =tk.Button(win,text='12\nMonths', width=8,command=mon12,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
     test_bt1.place(x=47,y=430)
@@ -370,16 +496,25 @@ gym_btn = tk.Button(
     relief=tk.FLAT,
     command= active_both_button
 )
-gym_btn1 = tk.Button(
-    top,
-    bg='black',
-    fg='White',
-    text='COST',
-    font=('Helvetica',10,'bold'),width=10,bd=0,
-    activebackground='Black',
+gym_btn1 = tk.Button(top,bg='black',fg='White',text='COST',font=('Helvetica',10,'bold'),width=10,bd=0,activebackground='Black',
     activeforeground='#fecc09',
     relief=tk.FLAT,
     command= hiddenContact
+)
+gym_btn2 = tk.Button(top,bg='black',fg='White',text='COST',font=('Helvetica',10,'bold'),width=10,bd=0,activebackground='Black',
+    activeforeground='#fecc09',
+    relief=tk.FLAT,
+    command= hiddenService
+)
+gym_btn3 = tk.Button(top,bg='black',fg='White',text='COST',font=('Helvetica',10,'bold'),width=10,bd=0,activebackground='Black',
+    activeforeground='#fecc09',
+    relief=tk.FLAT,
+    command= Hidedashboard
+)
+gym_btn4 = tk.Button(top,bg='black',fg='White',text='COST',font=('Helvetica',10,'bold'),width=10,bd=0,activebackground='Black',
+    activeforeground='#fecc09',
+    relief=tk.FLAT,
+    command= hideknowledge
 )
 
 gym_btn.pack(side='right',padx= 0,pady=12)
@@ -392,28 +527,29 @@ gym_btn.bind("<Leave>", on_leave_gym)
 
  # === END NEW CODE ====== #
 
-# ================= RESULT BUTTON ================= 
-
-def result_info():
+# ================= Dashboard BUTTON ================= 
+def board_info():
     global img3
     mid = tk.Frame(win,bg='White')
-    mid.place(y=50,width=1000,height=303)
-    img3 = PhotoImage(file='./image/result.png')
+    mid.place(y=50,width=1000,height=606)
+    img3 = PhotoImage(file='./image/GymDash.png')
     Label(mid,image=img3,bd=0).place(x=0,y=0)
 result_btn = tk.Button(
     top,
     bg='Black',
     fg='White',
-    text='RESULT',
+    text='BOARD',
     font=('Helvetica',10,'bold'),width=10,bd=0,
     activebackground='Black',
     activeforeground='#fecc09',
     relief=tk.FLAT,
-    command= result_info
+    command= board_info
+
 )
 result_btn.pack(side='right',padx= 0,pady=12)
 result_btn.bind("<Enter>", on_enter_result)
 result_btn.bind("<Leave>", on_leave_result)
+
 
 
 win.mainloop()
