@@ -305,9 +305,9 @@ def knowledge_infor ():
 
     # bottom_canvas.create_line(500,10,500,400, dash=(4,2),width=3,fill='#20b2aa')
     imgverti = PhotoImage(file='./assets/kedoc.png')
-    Label(win,image=imgverti,fg='white').place(x=500,y=364)
+    Label(win,image=imgverti,fg='white').place(x=525,y=364)
 
-    img20 = PhotoImage(file='./image/foot4.png')
+    img20 = PhotoImage(file='./image/foot6.png')
     img20 = img20.subsample(2)
     bottom_canvas.create_image(750,130, image = img20,anchor='center')
 
