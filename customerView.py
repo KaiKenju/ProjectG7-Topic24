@@ -12,11 +12,7 @@ mid = tk.Frame(win,bg='White')
 mid.place(y=50,width=1000,height=606)
 img3 = PhotoImage(file='./image/GymDash.png')
 Label(mid,image=img3,bd=0).place(x=0,y=0)
-#============================================= D A S H B O A R D =====================================
 #================= CONTACT HOVER ===========
-
-
-# === END NEW CODE ====== #
 
 def mon12():
     Label(win,text='Duration: 12 Months', font=('Helvetica',14),fg='Black').place(x=430,y=390)
@@ -60,7 +56,33 @@ def year3():
     Label(win,text='Total Cost:  3000 USD', font=('Helvetica',14),fg='Black').place(x=430,y=430)
     Label(win,text='Cost/Month:  300 USD', font=('Helvetica',14),fg='Black').place(x=430,y=470)
     Label(win,text='Cost/Day:      3.4 USD', font=('Helvetica',14),fg='Black').place(x=430,y=510)
-# === END NEW CODE ====== #
+
+def buttonCl():
+    test_bt1 =tk.Button(win,text='12\nMonths', width=8,command=mon12,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt1.place(x=47,y=430)
+    
+    test_bt2 =tk.Button(win,text='3\nMonths', width=8,command=mon3,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt2.place(x=47,y=500)
+
+    test_bt3 =tk.Button(win,text='6\nMonths', width=8,command=mon6,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt3.place(x=145,y=430)
+
+    test_bt4 =tk.Button(win,text='1\nMonth', width=8,command=mon1,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt4.place(x=145,y=500)
+def buttonAD():
+    test_bt5 =tk.Button(win,text='18\nMonths', width=8,command=mon18,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt5.place(x=47,y=430)
+
+    test_bt6 =tk.Button(win,text='21\nMonths', width=8,command=mon21,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt6.place(x=47,y=500)
+
+    test_bt7 =tk.Button(win,text='2\nYears', width=8,command=year2,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt7.place(x=145,y=430)
+
+    test_bt8 =tk.Button(win,text='3\nYears', width=8,command=year3,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
+    test_bt8.place(x=145,y=500)
+
+#=================== CONTACT HOVER =============
 def on_enter_contact(e):
     contact_btn.config(bg='Black',fg='#fecc09')
 
@@ -68,49 +90,11 @@ def on_leave_contact(e):
     contact_btn.config(bg='black',fg='White')
 
 #=================== KNOWLEDGE HOVER =============
-#-----------know frame--------
-
 def on_enter_know(e):
-    global know_frame
-    know_frame = tk.Frame(win,bg='White')
-    know_frame.place(x=650,y=40,width=200,height=150)
     know_btn.config(bg='Black', fg='#fecc09')
-
-    vlog_btn = Button(know_frame, 
-        bg='#e1e1d0', 
-        fg='White', 
-        text='Vlog', 
-        font=('Helvetica', 10, 'bold'), width=8,bd=0, 
-        activebackground='#e1e1d0', 
-        activeforeground='#fecc09', 
-        relief=tk.FLAT)
-    vlog_btn.grid(row=0, column=0, padx=10, pady=10)
-
-    write_btn = Button(know_frame, 
-        bg='#e1e1d0', 
-        fg='White', 
-        text='Write', 
-        font=('Helvetica', 10, 'bold'), width=8,bd=0, 
-        activebackground='#e1e1d0', 
-        activeforeground='#fecc09', 
-        relief=tk.FLAT)
-    write_btn.grid(row=1, column=0, padx=10, pady=10)
-
-    library_btn = Button(know_frame, 
-        bg='#e1e1d0', 
-        fg='White', 
-        text='Library', 
-        font=('Helvetica', 10, 'bold'), width=8,bd=0, 
-        activebackground='#e1e1d0', 
-        activeforeground='#fecc09', 
-        relief=tk.FLAT)
-    library_btn.grid(row=2, column=0, padx=10, pady=10)
-
+    
 def on_leave_know(e):
-    if (e.widget == know_btn or e.widget == know_frame):
-        know_btn.config(bg='black', fg='white')
-        know_frame.bind("<Enter>", on_enter_know)
-    know_frame.destroy()
+    know_btn.config(bg='black', fg='white')
 
 #=================== SERVICE HOVER =============
 
@@ -141,13 +125,14 @@ def signupnow(t:Tk):
     t.destroy()
     call(["python", "loginas.py"])
 
+#hide information of CONTACT
 def hiddenContact():
-    # bottom_frame.bind()
-    blindFRAME()
+    bottom_frame.place_forget()
     bottom_canvas.bind()
     img_build.blank()
     img_location.blank()
 
+#hide information of SERVICE
 def hiddenService():
     img_gymhome.blank()
     img_kickboxing.blank()
@@ -155,15 +140,17 @@ def hiddenService():
     img_basketball.blank()
     litServ.place_forget()
 
+#hide Board
 def Hidedashboard():
     img3.blank()
 
+#hide knowledge
 def hideknowledge():
     img20.blank()
     img21.blank()
     imgverti.blank()
-    
 
+# active many buttons
 def active_both_button():
     gym_btn1.invoke() #invoke means connection Button with funtion
     gym_btn2.invoke()
@@ -172,7 +159,7 @@ def active_both_button():
     gym_info()
 
 #========================================================================================
-#========================================================================================
+
 
 top = tk.Frame(
     win,
@@ -180,7 +167,6 @@ top = tk.Frame(
 )
 top.place(width=1000,height=50)
 win.resizable(0,0)
-#bot = tk.LabelFrame(win,bg='white',width=1000,height=303).place(y=355)
 
 #image on dashboard
 img0= PhotoImage(file='./assets/1.png')
@@ -268,9 +254,6 @@ def contact_info():
 
     twitter_button = Button(bottom_frame,image=img_tw,command=on_twitter,borderwidth=0)
     twitter_button.place(x=880,y=190)
-def blindFRAME():
-    global frame1
-    frame1 = bottom_frame.place_forget()
 
 contact_btn = tk.Button(
     top,
@@ -283,13 +266,11 @@ contact_btn = tk.Button(
     relief= tk.FLAT,
     command= contact_info
 )
-
 contact_btn.pack(side='right',padx= 15,pady=12)
 contact_btn.bind("<Enter>", on_enter_contact)
 contact_btn.bind("<Leave>", on_leave_contact)
 
 # ================= KNOWLEDGE BUTTON =================
-
 def knowledge_infor ():
     global img,imgverti
     global img20,img21
@@ -318,9 +299,9 @@ def knowledge_infor ():
     bottom_canvas.pack(fill=BOTH,expand=TRUE)
 
     bottom_canvas.create_text(75,23,text='WORKOUT',font=('Montserrat',12,'bold'),fill='Black')
-    bottom_canvas.create_line(30,10,125,10,width=4,fill='#fecc09')
+    bottom_canvas.create_line(30,10,115,10,width=4,fill='#fecc09')
     bottom_canvas.create_text(75,60,text='NUTRITION',font=('Montserrat',12,'bold'),fill='Black')
-    bottom_canvas.create_line(30,45,125,45,width=4,fill='#fecc09')
+    bottom_canvas.create_line(30,45,115,45,width=4,fill='#fecc09')
 
     # bottom_canvas.create_line(500,10,500,400, dash=(4,2),width=3,fill='#20b2aa')
     imgverti = PhotoImage(file='./assets/kedoc.png')
@@ -333,7 +314,6 @@ def knowledge_infor ():
     img21 = PhotoImage(file='./image/fullbody2.png')
     img21 = img21.subsample(2)
     bottom_canvas.create_image(300,125,image = img21, anchor= 'center')
-
 
 know_btn = tk.Button(
     top,
@@ -349,8 +329,6 @@ know_btn = tk.Button(
 know_btn.pack(side='right',padx= 15,pady=12)
 know_btn.bind("<Enter>", on_enter_know)
 know_btn.bind("<Leave>", on_leave_know)
-
-
 
 # ================= SERVICE BUTTON ================= 
 def service_info():
@@ -413,21 +391,18 @@ service_btn = tk.Button(
     relief= tk.FLAT,
     command= service_info
 )
-
 service_btn.pack(side='right',padx= 15,pady=12)
 service_btn.bind("<Enter>", on_enter_service)
 service_btn.bind("<Leave>", on_leave_service)
 
 
 # ================= GYM BUTTON ================= 
-# ================= NEW CODEEEEEEEEEEEEEE
-
 def gym_info():
     global img2,img12mon,img6mon,img3mon,img1mon
     global imgkedoc,imgphanchia,imgHLV
 
     # #   add button to click-------------------------------------------------------------------------------------
-    Button(win,text='CLASSIC\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonCl).place(x=32,y=365)
+    Button(win,text='CLASSIC\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonCl).place(x=30,y=365)
     Button(win,text='ADVANCED\n––––––––',font=('Microsoft YaHei UI Light', 12,'bold'),fg='Black',borderwidth=0,command=buttonAD).place(x=160,y=365)
     mon12()
     
@@ -458,32 +433,6 @@ def gym_info():
     
     # contact admin
     Button(win,text='Sign up now',font=('Microsoft YaHei UI Light', 12,'bold'),bg='#dc5353',fg='white',command=lambda: signupnow(win),width=15).place(x=430,y=550)
-
-# #   add button to click-------------------------------------------------------------------------------------
-def buttonCl():
-    test_bt1 =tk.Button(win,text='12\nMonths', width=8,command=mon12,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt1.place(x=47,y=430)
-    
-    test_bt2 =tk.Button(win,text='3\nMonths', width=8,command=mon3,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt2.place(x=47,y=500)
-
-    test_bt3 =tk.Button(win,text='6\nMonths', width=8,command=mon6,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt3.place(x=145,y=430)
-
-    test_bt4 =tk.Button(win,text='1\nMonth', width=8,command=mon1,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt4.place(x=145,y=500)
-def buttonAD():
-    test_bt5 =tk.Button(win,text='18\nMonths', width=8,command=mon18,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt5.place(x=47,y=430)
-
-    test_bt6 =tk.Button(win,text='21\nMonths', width=8,command=mon21,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt6.place(x=47,y=500)
-
-    test_bt7 =tk.Button(win,text='2\nYears', width=8,command=year2,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt7.place(x=145,y=430)
-
-    test_bt8 =tk.Button(win,text='3\nYears', width=8,command=year3,font=('Microsoft YaHei UI Light', 12,'bold'),activebackground='white',activeforeground='#fecc09',borderwidth=0)
-    test_bt8.place(x=145,y=500)
 
 gym_btn = tk.Button(
     top,
@@ -516,16 +465,9 @@ gym_btn4 = tk.Button(top,bg='black',fg='White',text='COST',font=('Helvetica',10,
     relief=tk.FLAT,
     command= hideknowledge
 )
-
 gym_btn.pack(side='right',padx= 0,pady=12)
 gym_btn.bind("<Enter>", on_enter_gym)
 gym_btn.bind("<Leave>", on_leave_gym)
-
-# ================= NEW CODEEEEEEEEEEEEEE
-
-# =====================Button in button gym =====================# NEW CODEEEEEEEEEEEEEE
-
- # === END NEW CODE ====== #
 
 # ================= Dashboard BUTTON ================= 
 def board_info():
@@ -549,7 +491,4 @@ result_btn = tk.Button(
 result_btn.pack(side='right',padx= 0,pady=12)
 result_btn.bind("<Enter>", on_enter_result)
 result_btn.bind("<Leave>", on_leave_result)
-
-
-
 win.mainloop()
