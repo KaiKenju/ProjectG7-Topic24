@@ -3,8 +3,6 @@ import tkinter.messagebox as mb
 from tkinter import ttk
 import tkinter as tk
 import sqlite3
-from prettytable import PrettyTable
-
 
 # Creating the universal font variables
 headlabelfont = ("@Yu Gothic UI Semibold", 14, 'bold')
