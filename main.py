@@ -119,7 +119,7 @@ def search_record():
     mb.showinfo("Search Results", f"Found {len(data)} records matching '{keyword}'")
 
 #back
-def back_inforamtion ():
+def back_information ():
     # Clear the entry search
     entry_search.delete(0, END)
     # Delete all results from the treeview widget
@@ -159,8 +159,6 @@ center_frame.place(relx=0.2, y=30, relheight=1, relwidth=0.2)
 right_frame = Frame(main, bg="Gray35")
 right_frame.place(relx=0.4, y=30, relheight=1, relwidth=0.6)
 
-bot_frame = Frame(main, bg="Gray35")
-bot_frame.place(x=400, y=450, width=600)
 
 # Placing components in the left frame
 Label(left_frame, text="Name", font=labelfont, bg=lf_bg).place(relx=0.375, rely=0.005)
@@ -192,12 +190,10 @@ Button(center_frame, text='Delete Record', font=labelfont, command=remove_record
 Button(center_frame, text='View Record', font=labelfont, command=view_record, width=15).place(relx=0.1, rely=0.35)
 Button(center_frame, text='Reset Fields', font=labelfont, command=reset_fields, width=15).place(relx=0.1, rely=0.45)
 Button(center_frame, text='Delete database', font=labelfont, command=reset_form, width=15).place(relx=0.1, rely=0.55)
-Button(center_frame, text='Back', font=labelfont, command=back_inforamtion, width=15).place(relx=0.1, rely=0.65)
+Button(center_frame, text='Back', font=labelfont, command=back_information, width=15).place(relx=0.1, rely=0.65)
 Button(center_frame, text='Search', font=labelfont, command=search_record, width=15).place(relx=0.1, rely=0.03)
 # Placing components in the right frame
 Label(right_frame, text='Customer Records', font=headlabelfont, bg='DarkGreen', fg='LightCyan').pack(side=TOP, fill=X)
-
-Label(bot_frame, text='List of Course', font=headlabelfont, bg='DarkGreen', fg='LightCyan').pack(side=BOTTOM, fill=X)
 
 tree = ttk.Treeview(right_frame, height=100, selectmode=BROWSE,
                     columns=('NO_ID', "Name", "Customer ID", "Contact Number", "Gender", "Date of Birth", "JoinDate", "Course ID", "Course Name"))
@@ -233,18 +229,6 @@ tree.column('#9', width=90, stretch=NO)
 
 tree.place(y=30, relwidth=1, relheight=0.9, relx=0)
 
-
-t=Text(main)
-x=PrettyTable()
-x.field_names = [" ID ","  Name  ", "  Duration  ", "  Fee  ", "  Description  ", "  PT  "]
-
-x.add_row([ 123 , "Group X ", " 3 months ", " 100 USD ", "  Hardwork  ", "  Yes "])
-x.add_row([ 456 , "Workout ", " 4 months ", " 150 USD ", "  Hardwork  ", "  Yes "])
-x.add_row([ 789 , " Aerobic ", " 3 months ", " 120 USD ", "  Lightly  ", "  Yes "])
-t.insert(INSERT,x)
-t.place(x=400, y=480, width=600)
-display_records()
-  
 # Finalizing the GUI window
 main.update()
 main.mainloop()
