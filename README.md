@@ -4,13 +4,13 @@
 ### A project from Advanced Programming with Python, Group 7
 
 ## Our team
-|     Members        |    ID    |  Contribute     |
-|:------------------:|:--------:|:---------------:|
-|  Lê Tuấn Anh       | BA11-005 | GUI,Ideal       |
-| Đinh Văn Hiệp      | BA11-041 | GUI,Login,DB    | 
-| Nguyễn Trường Khải | BA11-054 | GUI, Statistics |
-| Lê Vũ Hoàng        | BA11-046 | Statistics,Slide|
-| Nguyễn Nhật Anh    | BI12-022 | Presentation    |
+|     Members        |    ID    |  Contribute       |
+|:------------------:|:--------:|:-----------------:|
+|  Lê Tuấn Anh       | BA11-005 | GUI,Ideal         |
+| Đinh Văn Hiệp      | BA11-041 | GUI,Login,Conector| 
+| Nguyễn Trường Khải | BA11-054 | GUI, Statistics   |
+| Lê Vũ Hoàng        | BA11-046 | Statistics,GUI    |
+| Nguyễn Nhật Anh    | BI12-022 | Presentation,DB   |
 
 
 ## Features
@@ -58,3 +58,8 @@ GUI based on
 
 4. Tkinter.ttk – To create the tree where all the information will be displayed.
 
+# 🔖 Progress
+
+The first 2 weeks focus on Gym management system (login, db..)
+
+Last 2 weeks of UI building

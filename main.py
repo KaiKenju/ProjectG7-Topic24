@@ -187,8 +187,8 @@ Button(left_frame, text='Submit', font=labelfont, command=add_record, width=10).
 Button(center_frame, text='Delete Record', font=labelfont, command=remove_record, width=15).place(relx=0.1, rely=0.25)
 Button(center_frame, text='View Record', font=labelfont, command=view_record, width=15).place(relx=0.1, rely=0.35)
 Button(center_frame, text='Reset Fields', font=labelfont, command=reset_fields, width=15).place(relx=0.1, rely=0.45)
-Button(center_frame, text='Delete database', font=labelfont, command=reset_form, width=15).place(relx=0.1, rely=0.55)
-Button(center_frame, text='Back', font=labelfont, command=back_information, width=15).place(relx=0.1, rely=0.65)
+# Button(center_frame, text='Delete database', font=labelfont, command=reset_form, width=15).place(relx=0.1, rely=0.55)
+Button(center_frame, text='Back', font=labelfont, command=back_information, width=15).place(relx=0.1, rely=0.55)
 Button(center_frame, text='Search', font=labelfont, command=search_record, width=15).place(relx=0.1, rely=0.03)
 # Placing components in the right frame
 Label(right_frame, text='Customer Records', font=headlabelfont, bg='DarkGreen', fg='LightCyan').pack(side=TOP, fill=X)
